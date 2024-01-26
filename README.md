@@ -1,10 +1,10 @@
 # Task Management API
 
-## Task Management API
+## 🚀 Task Management API
 
 This API provides a set of features for managing tasks. Users can create tasks by specifying a title and description. Additionally, they have the ability to view a comprehensive list of all tasks, mark tasks as completed, edit task details, and delete tasks as needed. This API facilitates a flexible and efficient task management system, empowering users to organize and track their tasks seamlessly.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Typescript
 - Node.js
@@ -13,14 +13,14 @@ This API provides a set of features for managing tasks. Users can create tasks b
 - Jest
 - Supertest
 
-## Setup
+## 🏁 Setup
 
-```jsx
+```bash
 git clone git@github.com:vickatGit/ChainTechAssign.git
 cd project-path
 npm install
 npm run dev
-```
+
 
 ### Run Tests
 
