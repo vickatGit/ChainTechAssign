@@ -20,6 +20,7 @@ git clone git@github.com:vickatGit/ChainTechAssign.git
 cd project-path
 npm install
 npm run dev
+```
 
 
 ### Run Tests
