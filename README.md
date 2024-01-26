@@ -28,20 +28,20 @@ npm run dev
 npm run jest:watch
 ```
 
-## Documentation
+## 📖Documentation
 
 ### Registration
 
-- validation is added to `email` and `password` and password should be minimum 8 characters and should at least one capital and small letter and number should be include and at least one special character is needed otherwise it throws the error
+- Validation is added to `email` and `password`. Password should be a minimum of 8 characters, contain at least one capital and small letter, and include at least one number and one special character; otherwise, it throws an error.
 
 ```jsx
 const baseUrl="http://localhost:8081/"
 axios.post(apiUrl, {email,userName,password})
   .then(response => {
-    console.log('Signup successful:', response.data);
+    console.log('✅ Signup successful:', response.data);
   })
   .catch(error => {
-    console.error('Error during signup:', error.response.data);
+    console.error('❌ Error during signup:', error.response.data);
   });
 ```
 
@@ -54,10 +54,10 @@ const baseUrl = "http://localhost:8080/";
 
 axios.post(`${baseUrl}auth/login`, { email, password })
   .then(response => {
-    console.log('Login successful:', response.data);
+    console.log('🔐 Login successful:', response.data);
   })
   .catch(error => {
-    console.error('Error during login:', error.response.data);
+    console.error('❌ Error during login:', error.response.data);
   });
 ```
 
@@ -70,10 +70,10 @@ const baseUrl = "http://localhost:8081/";
 
 axios.get(`${baseUrl}tasks/tasks`)
   .then(response => {
-    console.log('All tasks:', response.data);
+    console.log('📋 All tasks:', response.data);
   })
   .catch(error => {
-    console.error('Error fetching tasks:', error.response.data);
+   console.error('❌ Error fetching tasks:', error.response.data);
   });
 ```
 
@@ -85,10 +85,10 @@ const category = "Study";
 
 axios.get(`${baseUrl}tasks/tasks?category=${category}`)
   .then(response => {
-    console.log(`Tasks with category ${category}:`, response.data);
+    console.log(`📚 Tasks with category ${category}:`, response.data);
   })
   .catch(error => {
-    console.error(`Error fetching tasks by category ${category}:`, error.response.data);
+    console.error(`❌ Error fetching tasks by category ${category}:`, error.response.data);
   });
 ```
 
@@ -100,10 +100,10 @@ const status = "Completed";
 
 axios.get(`${baseUrl}tasks/tasks?status=${status}`)
   .then(response => {
-    console.log(`Completed tasks:`, response.data);
+    console.log(`✅ Completed tasks:`, response.data);
   })
   .catch(error => {
-    console.error(`Error fetching completed tasks:`, error.response.data);
+   console.error(`❌ Error fetching completed tasks:`, error.response.data);
   });
 ```
 
@@ -117,10 +117,10 @@ const isBefore = false;
 axios.get(`${baseUrl}tasks/tasks?filterDate=${filterDate}&isBefore=${isBefore}`)
   .then(response => {
     const beforeOrAfter = isBefore ? 'before' : 'after';
-    console.log(`Tasks due ${beforeOrAfter} ${filterDate}:`, response.data);
+     console.log(`⏰ Tasks due ${beforeOrAfter} ${filterDate}:`, response.data);
   })
   .catch(error => {
-    console.error(`Error fetching tasks based on due date:`, error.response.data);
+    console.error(`❌ Error fetching tasks based on due date:`, error.response.data);
   });
 ```
 
@@ -145,10 +145,10 @@ const taskData = {
 // Make a POST request to create a new task
 axios.post(`${baseUrl}tasks/task`, taskData)
   .then(response => {
-    console.log('Task created successfully:', response.data);
+    console.log('✅ Task created successfully:', response.data);
   })
   .catch(error => {
-    console.error('Error creating task:', error.response.data);
+     console.error('❌ Error creating task:', error.response.data);
   });
 ```
 
@@ -175,10 +175,10 @@ const updatedTaskData = {
 // Make a PATCH request to update the task
 axios.patch(`${baseUrl}tasks/task/${taskId}`, updatedTaskData)
   .then(response => {
-    console.log('Task updated successfully:', response.data);
+     console.log('✅ Task updated successfully:', response.data);
   })
   .catch(error => {
-    console.error('Error updating task:', error.response.data);
+   console.error('❌ Error updating task:', error.response.data);
   });
 ```
 
@@ -195,10 +195,10 @@ const taskId = "65b2c56d9f50ef32c5b37b48";
 // Make a DELETE request to delete the task
 axios.delete(`${baseUrl}tasks/task/${taskId}`)
   .then(response => {
-    console.log('Task deleted successfully:', response.data);
+    console.log('✅ Task deleted successfully:', response.data);
   })
   .catch(error => {
-    console.error('Error deleting task:', error.response.data);
+    console.error('❌ Error deleting task:', error.response.data);
   });
 ```
 
@@ -210,9 +210,9 @@ const baseUrl = "http://localhost:8080/";
 // Make a GET request to fetch all task categories
 axios.get(`${baseUrl}tasks/categories`)
   .then(response => {
-    console.log('Task categories:', response.data);
+     console.log('📂 Task categories:', response.data);
   })
   .catch(error => {
-    console.error('Error fetching task categories:', error.response.data);
+   console.error('❌ Error fetching task categories:', error.response.data);
   });
 ```
