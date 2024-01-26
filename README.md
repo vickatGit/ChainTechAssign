@@ -4,13 +4,15 @@
 
 This API provides a set of features for managing tasks. Users can create tasks by specifying a title and description. Additionally, they have the ability to view a comprehensive list of all tasks, mark tasks as completed, edit task details, and delete tasks as needed. This API facilitates a flexible and efficient task management system, empowering users to organize and track their tasks seamlessly.
 
+### ✅ Tests are written with 100% code coverage.
+
 ## 🛠️ Tech Stack
 
 - Typescript
 - Node.js
 - Express.js
 - MongoDB
-- Jest
+- Jest 
 - Supertest
 
 ## 🏁 Setup
