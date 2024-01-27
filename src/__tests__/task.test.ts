@@ -91,6 +91,26 @@ describe("task", () => {
           .set("Authorization", token);
         expect(res.statusCode).toEqual(400);
       });
+
+      it("should update task status with 200 as status code ", async () => {
+        const res = await request(app)
+          .patch(`/tasks/status/${taskId}`)
+          .send({
+            status: "Completed",
+          })
+          .set("Authorization", token);
+        expect(res.statusCode).toEqual(200);
+      });
+
+      it("return 400 if task is already completed", async () => {
+        const res = await request(app)
+          .patch(`/tasks/status/${taskId}`)
+          .send({
+            status: "Completed",
+          })
+          .set("Authorization", token);
+        expect(res.statusCode).toEqual(400);
+      });
     });
   });
 
