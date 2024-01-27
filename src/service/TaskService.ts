@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { TaskModel as Task } from "../model/TaskModel";
 import { CategoryTypes } from "../model/CategoryTypes";
 import { Response } from "express";
+import { TaskStatus } from "../model/TaskStatus";
 
 export const createTask = async (task: any, userId: String) => {
   const userObjId = new mongoose.Types.ObjectId(`${userId}`);
@@ -24,6 +25,18 @@ export const updateTask = async (task: any, taskId: string, res: Response) => {
   }
 };
 
+export const getTask = async (taskId: string) => {
+  if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    throw new Error("Wrong id Provided");
+  }
+  try {
+    const data = await Task.findById(taskId);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const updateTaskStatus = async (
   taskId: string,
   status: string,
@@ -33,11 +46,20 @@ export const updateTaskStatus = async (
     res.status(400);
     throw new Error("Wrong id Provided");
   }
+  const task = await getTask(taskId);
+  if (task?.status == TaskStatus.Completed) {
+    res.status(400);
+    throw new Error("Can't Update the Status of Already Completed Task");
+  }
   try {
-    const data = await Task.findByIdAndUpdate(taskId, {
-      $set: { status: status },
-    });
-    return data;
+    if (!(task?.status == TaskStatus.Completed)) {
+      const data = await Task.findByIdAndUpdate(taskId, {
+        $set: { status: status },
+      });
+      return data;
+    } else {
+      return null;
+    }
   } catch (error) {}
 };
 

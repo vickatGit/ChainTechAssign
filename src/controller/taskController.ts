@@ -60,6 +60,7 @@ export const updateTaskStatusController = async (
   });
   if (error) return res.status(400).send({ errors: error });
   try {
+    console.log("update task status");
     await updateTaskStatus(req.params.taskId, req.body.status, res);
     res.status(200).send({
       code: 200,

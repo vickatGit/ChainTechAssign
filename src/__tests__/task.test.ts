@@ -17,6 +17,39 @@ const updateTaskObj = {
 const token = `Bearer ${process.env.SAMPLE_AUTH_TOKEN}`;
 
 describe("task", () => {
+  describe("auth", () => {
+    const email = `guest${Math.floor(Math.random() * 1000) + 1}@gmail.com`;
+    const password = "Guest@123";
+    describe("register", () => {
+      it("should create a new user and return status code 200", async () => {
+        const res = await request(app).post("/auth/signup").send({
+          email: email,
+          userName: "guest",
+          password: password,
+        });
+        expect(res.statusCode).toEqual(200);
+      });
+    });
+
+    describe("login", () => {
+      it("should return a token with status code 200", async () => {
+        const res = await request(app).post("/auth/login").send({
+          email: email,
+          password: password,
+        });
+        expect(res.statusCode).toEqual(200);
+      });
+
+      it("should return 400 if user already exists", async () => {
+        const res = await request(app).post("/auth/login").send({
+          email: "notaguest@gmail.com",
+          password: "guest",
+        });
+        expect(res.statusCode).toEqual(400);
+      });
+    });
+  });
+
   describe("get tasks route", () => {
     describe("gets all tasks ", () => {
       it("should return all tasks with 200 as status code ", async () => {
